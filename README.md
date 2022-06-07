@@ -21,4 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+***
+### cloner le dépôt
+### bundle install
+### rails g migrate
+*** 
+run serv
