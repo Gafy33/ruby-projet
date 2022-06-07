@@ -1,0 +1,42 @@
+<%= form_with :html=> {:id => 'url_form'}, method: :post do |form| %>
+  <% if reservation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+        <% reservation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :id_flight, style: "display: block" %>
+    <%= form.number_field :id_flight %>
+  </div>
+
+  <div>
+    <%= form.label :id_user, style: "display: block" %>
+    <%= form.number_field :id_user %>
+  </div>
+
+  <div>
+    <%= form.label :nombre_passage, style: "display: block" %>
+    <%= form.number_field :nombre_passage %>
+  </div>
+
+  <div>
+    <%= form.label :class_seat, style: "display: block" %>
+    <%= form.text_field :class_seat %>
+  </div>
+
+  <div>
+    <%= form.label :statut, style: "display: block" %>
+    <%= form.text_field :statut %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

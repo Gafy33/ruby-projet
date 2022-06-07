@@ -1,0 +1,79 @@
+<% if notice || alert %>
+  <div class="absolute top-6 left-6 z-[99]">
+    <div class="p-4 bg-red-600 rounded">
+      <p class="text-sm text-white">
+        <%= notice %>
+        <%= alert %>
+      </p>
+    </div>
+  </div>
+<% end %>
+<main>
+  <section class="relative w-full h-full h-screen">
+    <div
+      class="absolute top-0 w-full h-full bg-cover bg-no-repeat"
+      style="background-image: url('https://images4.alphacoders.com/241/241776.jpg')"
+    ></div>
+    <%= image_tag("mask.jpg", class: "absolute w-full h-full left-0 top-0 z-1 mix-blend-screen") %>
+    <div class="absolute top-10 right-20 z-99">
+      <%= link_to 'Accueil', home_index_path, :class => "text-sm border rounded bg-white px-3 py-2 hover:bg-main/50 hover:text-white"%>
+    </div>
+    <div class="container mx-auto px-4 h-full">
+      <div class="flex content-center items-center justify-center h-full">
+        <div class="w-full lg:w-5/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white/70 border-0"
+          >
+            <div class="rounded-t mb-0 px-6 py-6">
+              <div class="text-center mb-3">
+                <h6 class="text-slate-900 text-sm font-bold">
+                  S'inscrire' <!--avec-->
+                </h6>
+              </div>
+              <hr class="mt-6 border-b-1 border-slate-700" />
+            </div>
+            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="relative w-full mb-3">
+                  <label
+                    class="block uppercase text-slate-900 text-xs font-bold mb-2"
+                    for="email"
+                  >Email</label>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", require: true, :class => "border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" %>
+                </div>
+                <div class="relative w-full mb-3">
+                  <label
+                    class="block uppercase text-slate-900 text-xs font-bold mb-2"
+                    for="password"
+                  >Mot de passe
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> caractères minimum)</em>
+                  <% end %>
+                  </label>
+                  <%= f.password_field :password, autocomplete: "new-password", :class =>"border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" %>
+                </div>
+                <div class="relative w-full mb-3">
+                  <label
+                    class="block uppercase text-slate-900 text-xs font-bold mb-2"
+                    for="password"
+                  >Mot de passe</label
+                  >
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", :class =>"border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" %>
+                </div>
+                <div class="text-center mt-6">
+                  <%= f.submit "S'inscrire'", :class => "bg-main/60 hover:bg-main text-white active:bg-slate-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"%>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<%= render "devise/shared/links" %>

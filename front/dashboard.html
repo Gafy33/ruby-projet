@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            main: '#6546D2',
+          },
+          scale: {
+            '102': '1.02',
+          } 
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div class="w-full overflow-hidden">
+
+        <div class="absolute top-10 left-20 z-99">
+                <a href="index.html" class="text-sm border rounded bg-white px-3 py-2 hover:bg-main/50 hover:text-white">Accueil</a>
+        </div>
+
+        <div class="absolute top-10 right-20 z-99">
+                <a href="index.html" class="text-sm border rounded bg-white px-3 py-2 hover:bg-main/50 hover:text-white">Se déconnecter</a>
+        </div>
+
+        <div class="mt-16">
+            <div class="relative flex justify-center items-center">
+              <h2 class="text-3xl uppercase font-bold z-[99] bg-white px-10">Mon compte</h2>
+            </div>
+        </div>
+        <div class="mt-4 flex flex-wrap">
+            <div class="flex flex-wrap my-3 mx-16 w-full border border-main rounded px-10 py-4">
+                <div class="w-1/2">
+                    <div>
+                        <p class="text-sm">Prénom : </p>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-sm">Nom : </p>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-sm">Email : </p>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-sm">Identifiant : </p>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <div>
+                        <p class="text-sm">Mes réservations à venir : </p>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-sm">Mes réservations passées : </p>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-sm">Mes réservations totaux : </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  </div>
+
+  <div class="mt-16">
+      <div class="relative flex justify-center items-center flex-col">
+        <div class="absolute w-11/12 h-2 bg-main z-[1] rounded"></div>
+        <h2 class="text-5xl uppercase font-bold z-[99] bg-white px-10">Mes réservations à venir</h2>
+      </div>
+      <div class="mt-16 flex flex-wrap">
+        <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+            <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                <div class="w-9/12 flex flex-row justify-center">
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">08:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                    </div>
+                    <div class="relative w-1/3 flex flex-row items-center justify-center">
+                        <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                        <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                        <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                    </div>
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">18:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                    </div>
+                </div>
+                <div class="w-3/12 flex flex-col items-center justify-center">
+                    <p class="text-sm text-gray-500">Numéro du vol</p>
+                    <p class="mt-1 font-bold">2948798</p>
+                </div>
+            </div>
+            <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                <a href="">
+                    <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Annuler</button>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+            <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                <div class="w-9/12 flex flex-row justify-center">
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">08:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                    </div>
+                    <div class="relative w-1/3 flex flex-row items-center justify-center">
+                        <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                        <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                        <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                    </div>
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">18:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                    </div>
+                </div>
+                <div class="w-3/12 flex flex-col items-center justify-center">
+                    <p class="text-sm text-gray-500">Numéro du vol</p>
+                    <p class="mt-1 font-bold">2948798</p>
+                </div>
+            </div>
+            <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                <a href="">
+                    <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Annuler</button>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+            <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                <div class="w-9/12 flex flex-row justify-center">
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">08:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                    </div>
+                    <div class="relative w-1/3 flex flex-row items-center justify-center">
+                        <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                        <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                        <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                    </div>
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">18:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                    </div>
+                </div>
+                <div class="w-3/12 flex flex-col items-center justify-center">
+                    <p class="text-sm text-gray-500">Numéro du vol</p>
+                    <p class="mt-1 font-bold">2948798</p>
+                </div>
+            </div>
+            <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                <a href="">
+                    <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Annuler</button>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+            <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                <div class="w-9/12 flex flex-row justify-center">
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">08:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                    </div>
+                    <div class="relative w-1/3 flex flex-row items-center justify-center">
+                        <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                        <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                        <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                    </div>
+                    <div class="w-1/3 flex flex-col items-center">
+                        <p class="font-extrabold">18:00</p>
+                        <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                    </div>
+                </div>
+                <div class="w-3/12 flex flex-col items-center justify-center">
+                    <p class="text-sm text-gray-500">Numéro du vol</p>
+                    <p class="mt-1 font-bold">2948798</p>
+                </div>
+            </div>
+            <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                <a href="">
+                    <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Annuler</button>
+                </a>
+            </div>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <div class="relative flex justify-center items-center flex-col">
+          <div class="absolute w-11/12 h-2 bg-main z-[1] rounded"></div>
+          <h2 class="text-5xl uppercase font-bold z-[99] bg-white px-10">Mes réservations passées </h2>
+        </div>
+        <div class="mt-16 flex flex-wrap">
+          <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+              <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                  <div class="w-9/12 flex flex-row justify-center">
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">08:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                      </div>
+                      <div class="relative w-1/3 flex flex-row items-center justify-center">
+                          <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                          <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                          <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                      </div>
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">18:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                      </div>
+                  </div>
+                  <div class="w-3/12 flex flex-col items-center justify-center">
+                      <p class="text-sm text-gray-500">Numéro du vol</p>
+                      <p class="mt-1 font-bold">2948798</p>
+                  </div>
+              </div>
+              <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                  <a href="">
+                      <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Supprimer</button>
+                  </a>
+              </div>
+          </div>
+          <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+              <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                  <div class="w-9/12 flex flex-row justify-center">
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">08:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                      </div>
+                      <div class="relative w-1/3 flex flex-row items-center justify-center">
+                          <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                          <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                          <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                      </div>
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">18:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                      </div>
+                  </div>
+                  <div class="w-3/12 flex flex-col items-center justify-center">
+                      <p class="text-sm text-gray-500">Numéro du vol</p>
+                      <p class="mt-1 font-bold">2948798</p>
+                  </div>
+              </div>
+              <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                  <a href="">
+                      <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Supprimer</button>
+                  </a>
+              </div>
+          </div>
+          <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+              <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                  <div class="w-9/12 flex flex-row justify-center">
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">08:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                      </div>
+                      <div class="relative w-1/3 flex flex-row items-center justify-center">
+                          <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                          <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                          <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                      </div>
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">18:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                      </div>
+                  </div>
+                  <div class="w-3/12 flex flex-col items-center justify-center">
+                      <p class="text-sm text-gray-500">Numéro du vol</p>
+                      <p class="mt-1 font-bold">2948798</p>
+                  </div>
+              </div>
+              <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                  <a href="">
+                      <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Supprimer</button>
+                  </a>
+              </div>
+          </div>
+          <div class="flex flex-wrap my-3 mx-16 w-full h-32 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+              <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+                  <div class="w-9/12 flex flex-row justify-center">
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">08:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport dep</p>
+                      </div>
+                      <div class="relative w-1/3 flex flex-row items-center justify-center">
+                          <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+                          <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+                          <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée </div>
+                      </div>
+                      <div class="w-1/3 flex flex-col items-center">
+                          <p class="font-extrabold">18:00</p>
+                          <p class="mt-1 text-sm text-gray-700">aéroport arr</p>
+                      </div>
+                  </div>
+                  <div class="w-3/12 flex flex-col items-center justify-center">
+                      <p class="text-sm text-gray-500">Numéro du vol</p>
+                      <p class="mt-1 font-bold">2948798</p>
+                  </div>
+              </div>
+              <div class="w-3/12 flex flex-col justify-center items-center">
+                <p class="mb-2 text-sm">31/05/2022</p>
+                  <a href="">
+                      <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Supprimer</button>
+                  </a>
+              </div>
+          </div>
+        </div>
+
+  </div>
+
+  <footer class="mt-8 bg-main h-32 flex flex-wrap px-24 text-white">
+        <div class="w-1/3 flex flex-col text-sm justify-center items-center">
+            <a href="#" class="hover:text-gray-300">Conditions générales de transport</a>
+            <a class="mt-1 hover:text-gray-300" href="#">Conditions d’utilisation</a>
+            <a class="mt-1 hover:text-gray-300" href="#">Politique de confidentialité</a>
+        </div>
+        <div class="w-1/3 flex flex-col text-sm justify-center items-center">
+            <p>2022 © DAWIN B. Tous droits réservés</p>
+            <p class="uppercase text-xl font-extrabold mt-1">ra</p>
+        </div>
+        <div class="w-1/3 flex flex-col text-sm justify-center items-center">
+            <a href="#" class="hover:text-gray-300">Cookies</a>
+            <a class="mt-1 hover:text-gray-300" href="#">Nous contacter</a>
+            <a class="mt-1 hover:text-gray-300" href="#">Préférences en matière de cookies</a>
+        </div>
+  </footer>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

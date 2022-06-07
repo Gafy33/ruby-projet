@@ -1,0 +1,5 @@
+<% if page.current? %>
+    <%= content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'ml-1 text-sm w-8 h-8 flex justify-center items-center border rounded-sm bg-main text-white'  %>
+<% else %>
+    <%= link_to page, url, remote: remote, rel: page.rel, class: 'ml-1 text-sm w-8 h-8 flex justify-center items-center border rounded-sm hover:bg-main/50 hover:text-white' %>
+<% end %>

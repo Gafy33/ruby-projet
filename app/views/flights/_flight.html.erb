@@ -1,0 +1,33 @@
+<div id="<%= dom_id flight %>" class="flex flex-wrap my-3 mx-16 w-full h-40 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+  <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+    <div class="w-9/12 flex flex-row justify-center">
+      <div class="w-1/3 flex flex-col items-center">
+        <p class="font-extrabold"><%= flight.departure_date.strftime("%H:%M") %></p>
+        <p class="mt-2 text-sm text-gray-700"><%= flight.departure_airport %></p>
+      </div>
+      <div class="relative w-1/3 flex flex-row items-center justify-center">
+        <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+        <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+        <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée <%= Time.at(flight.duration).utc.strftime("%M:%S") %></div>
+      </div>
+      <div class="w-1/3 flex flex-col items-center">
+        <p class="font-extrabold"><%= (flight.departure_date + flight.duration.minutes).strftime("%H:%M") %></p>
+        <p class="mt-2 text-sm text-gray-700"><%= flight.arrival_airport %></p>
+      </div>
+    </div>
+    <div class="w-3/12 flex flex-col items-center justify-center">
+      <p class="text-sm text-gray-500">Numéro du vol</p>
+      <p class="mt-1 font-bold"><%= flight.number %></p>
+      <p class="hidden"><%= flight.business_class_seats %></p>
+      <p class="hidden"><%= flight.economy_class_seats %></p>
+    </div>
+  </div>
+  <div class="w-3/12 flex flex-col justify-center items-center">
+    <p class="mb-2 text-sm"><%= flight.departure_date.strftime("%d/%m/%Y") %></p>
+    <% if user_signed_in? %>
+      <button @click="isOpen = ! isOpen" onclick="voir_reservation(<%= flight.id %>)" class="border rounded bg-main/80 px-3 py-2 hover:bg-main text-white">Voir Réservation</button>
+    <% else %>
+      <p class="text-sm">Pour réserver, il faut vous connecter</p>
+    <% end %>
+  </div>
+</div>

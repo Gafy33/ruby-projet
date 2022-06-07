@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projet</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        main: '#6546D2',
+                    },
+                    scale: {
+                        '102': '1.02',
+                    }
+                }
+            }
+        }
+    </script>
+  </head>
+
+  <body data-no-turbolink="true">
+    <%= yield %>
+
+  <script>
+      var nombre_place_eco = 0;
+      var nombre_place_business = 0;
+
+      function voir_reservation(id)
+      {
+          console.log(id);
+          $.ajax({
+              url: "/ajax_show_reservation/" + id,
+              type: "get",
+
+              success: function(data) {
+                  var vol = JSON.parse(data);
+                  console.log(vol);
+                  document.getElementById("heure_depart").innerHTML = vol.data3;
+                  document.getElementById("heure_arrive").innerHTML = vol.data2;
+                  document.getElementById("air_arrive").innerHTML = vol.all_data.data.arrival_airport;
+                  document.getElementById("air_depart").textContent = vol.all_data.data.departure_airport;
+                  document.getElementById("num_vol").textContent = vol.all_data.data.number;
+                  document.getElementById("date_depart").textContent = vol.data1;
+                  document.getElementById("url_form").action = "/reservations/create/" + vol.all_data.data.id;
+
+
+                  nombre_place_eco = vol.data4;
+                  nombre_place_business = vol.data5;
+
+              }
+          })
+      }
+
+      function nombre_place_restante(number)
+      {
+          if(number >= 0) {
+              document.getElementById("nombre_place_restante").textContent = "nombre de place restantes : " + number;
+              document.getElementById("btn_submit_reserver").classList.remove("hidden");
+              document.getElementById("btn_submit_reserver").classList.add("block");
+          } else {
+              document.getElementById("nombre_place_restante").textContent = "plus de places restantes";
+              document.getElementById("btn_submit_reserver").classList.remove("block");
+              document.getElementById("btn_submit_reserver").classList.add("hidden");
+          }
+      }
+      function value_select(data)
+      {
+          var place = data.value;
+
+          if(place == "affaires")
+          {
+              nombre_place_restante(nombre_place_business - document.getElementById("input_nombre").value);
+          } else if(place == "economique")
+          {
+              nombre_place_restante(nombre_place_eco - document.getElementById("input_nombre").value);
+          }
+      }
+
+      function input_value(data)
+      {
+          var number = data.value;
+
+          if(number > 0)
+          {
+              if(document.getElementById("select_place").value == "economique") {
+                  nombre_place_restante(nombre_place_eco - number);
+              }
+              else if(document.getElementById("select_place").value == "affaires")
+              {
+                  nombre_place_restante(nombre_place_business - number);
+              }
+          }
+      }
+
+      function reset_value()
+      {
+          document.getElementById("input_nombre").value = 0;
+      }
+
+
+
+
+  </script>
+  </body>
+</html>

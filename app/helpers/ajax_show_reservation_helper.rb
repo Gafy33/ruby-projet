@@ -1,0 +1,2 @@
+module AjaxShowReservationHelper
+end

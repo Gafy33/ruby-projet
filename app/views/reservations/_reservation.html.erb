@@ -1,0 +1,40 @@
+<div id="<%= dom_id reservation %>" class="relative flex flex-wrap my-3 mx-16 w-full h-40 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+  <div class="absolute -right-8 -top-8 text-xl w-16 h-16  rounded-full bg-main text-white font-extrabold shadow flex items-center justify-center"><%= reservation.nombre_passage %></div>
+  <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
+    <div class="w-9/12 flex flex-row justify-center">
+      <div class="w-1/3 flex flex-col items-center">
+        <p class="font-extrabold"><%= reservation.departure_date.to_datetime.strftime("%H:%M") %></p>
+        <p class="mt-2 text-sm text-gray-700"><%= reservation.departure_airport %></p>
+      </div>
+      <div class="relative w-1/3 flex flex-row items-center justify-center">
+        <div class="absolute w-full h-0.5 bg-gray-400 rounded"></div>
+        <ion-icon class="w-6 h-6 bg-white text-main px-2" name="airplane"></ion-icon>
+        <div class="absolute w-full top-full flex items-center justify-center text-sm text-gray-500">Durée <%= Time.at(reservation.duration).utc.strftime("%M:%S") %></div>
+      </div>
+      <div class="w-1/3 flex flex-col items-center">
+        <p class="font-extrabold"><%= (reservation.departure_date.to_datetime + reservation.duration.minutes).strftime("%H:%M")  %></p>
+        <p class="mt-2 text-sm text-gray-700"><%= reservation.arrival_airport %></p>
+      </div>
+    </div>
+    <div class="w-3/12 flex flex-col items-center justify-center">
+      <p class="text-sm text-gray-500">Numéro du vol</p>
+      <p class="mt-1 font-bold"><%= reservation.number %></p>
+      <p class="mt-2 text-sm text-gray-500">Place choisi</p>
+      <p class="mt-1 font-bold"><%= reservation.class_seat %></p>
+    </div>
+  </div>
+  <div class="w-3/12 flex flex-col justify-center items-center">
+    <p class="mb-5 text-sm"><%= reservation.departure_date.to_datetime.strftime("%d/%m/%Y") %></p>
+    <div class="w-full flex justify-center items-center flex-wrap ">
+      <div class="w-1/2 flex flex-col justify-center items-center">
+        <p class="text-sm text-gray-500"> statut </p>
+        <p class="mb-2 font-bold"><%= reservation.statut %></p>
+      </div>
+      <div class="w-1/2 flex flex-col justify-center items-center">
+        <a href="/reservations/delete/<%= reservation.id %>">
+          <button class="border rounded bg-[#FF0000]/80 px-3 py-2 hover:bg-[#FF0000] text-white">Annuler</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_flight: 1
+  id_user: 1
+  nombre_passage: 1
+  class_seat: MyString
+  statut: MyString
+
+two:
+  id_flight: 1
+  id_user: 1
+  nombre_passage: 1
+  class_seat: MyString
+  statut: MyString
