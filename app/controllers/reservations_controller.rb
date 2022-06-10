@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
   before_action :set_reservation, only: %i[ show edit update destroy ]
 
@@ -22,7 +23,7 @@ class ReservationsController < ApplicationController
 
   def create
 
-    @reservation = Reservation.new(:id_flight => params[:id], :id_user => current_user.id, :nombre_passage => params[:nombre_passage], :class_seat => params[:class_seat], :statut => "En cours")
+    @reservation = Reservation.new(:id_flight => params[:id], :id_user => current_user.id, :nombre_passage => params[:nombre_passage], :class_seat => params[:class_seat], :statut => "en attente")
 
     respond_to do |format|
       if @reservation.save

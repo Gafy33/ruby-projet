@@ -5,5 +5,7 @@ class CompteController < ApplicationController
                                .where(id_user: current_user.id)
 
     @count = Reservation.where(id_user: current_user.id).count
+
+    @nombre_reservations_attente = Reservation.where("id_user = :user_id AND statut = :statu", {user_id: current_user.id, statu: "en attente"}).count
   end
 end

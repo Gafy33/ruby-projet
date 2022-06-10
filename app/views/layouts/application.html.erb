@@ -25,7 +25,8 @@
                     },
                     scale: {
                         '102': '1.02',
-                    }
+                    },
+
                 }
             }
         }
@@ -38,6 +39,7 @@
   <script>
       var nombre_place_eco = 0;
       var nombre_place_business = 0;
+      var vol_id;
 
       function voir_reservation(id)
       {
@@ -58,6 +60,7 @@
                   document.getElementById("url_form").action = "/reservations/create/" + vol.all_data.data.id;
 
 
+                  vol_id = vol.all_data.data.id;
                   nombre_place_eco = vol.data4;
                   nombre_place_business = vol.data5;
 
@@ -71,10 +74,13 @@
               document.getElementById("nombre_place_restante").textContent = "nombre de place restantes : " + number;
               document.getElementById("btn_submit_reserver").classList.remove("hidden");
               document.getElementById("btn_submit_reserver").classList.add("block");
+              document.getElementById("url_form").action = "/reservations/create/" + vol_id;
           } else {
               document.getElementById("nombre_place_restante").textContent = "plus de places restantes";
               document.getElementById("btn_submit_reserver").classList.remove("block");
               document.getElementById("btn_submit_reserver").classList.add("hidden");
+
+              document.getElementById("url_form").action = "/#";
           }
       }
       function value_select(data)
@@ -94,7 +100,7 @@
       {
           var number = data.value;
 
-          if(number > 0)
+          if(number >= 0)
           {
               if(document.getElementById("select_place").value == "economique") {
                   nombre_place_restante(nombre_place_eco - number);
@@ -108,7 +114,8 @@
 
       function reset_value()
       {
-          document.getElementById("input_nombre").value = 0;
+          document.getElementById("input_nombre").value = "";
+          document.getElementById("nombre_place_restante").textContent = "";
       }
 
 

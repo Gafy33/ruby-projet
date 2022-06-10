@@ -1,11 +1,45 @@
 <div class="w-full overflow-hidden">
 
   <div class="absolute top-10 left-20 z-99">
-    <%= link_to 'Accueil', home_index_path, :class => "text-sm border rounded bg-white px-3 py-2 hover:bg-main/50 hover:text-white"%>
+    <%= link_to 'Accueil', "/", :class => "text-sm border rounded bg-white px-3 py-2 hover:bg-main/50 hover:text-white"%>
   </div>
 
-  <div class="absolute top-10 right-20 z-99">
-    <%= button_to 'Se déconnecter', destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }, :class => "text-sm border rounded bg-white px-3 py-2 hover:bg-main/50 hover:text-white" %>
+  <div class="absolute top-10 right-20 z-99 flex flex-row">
+    <% if @nombre_reservations_attente > 0 %>
+      <div x-data="{ dropdownOpen: false }" class="relative inline-block text-left">
+        <div>
+          <button type="button" @click="dropdownOpen = ! dropdownOpen" class="relative inline-flex justify-center w-full border-gray-300 px-2 py-2" id="menu-button" aria-expanded="true" aria-haspopup="true">
+            <ion-icon class="relative w-5 h-5 text-main" name="notifications-outline">
+            </ion-icon>
+            <div class="absolute top-2 right-2 bg-red-500 text-sm border rounded-full w-2 h-2"></div>
+            <span class="animate-ping absolute inline-flex w-5 h-5 rounded-full bg-main opacity-75"></span>
+          </button>
+        </div>
+
+        <!--
+          Dropdown menu, show/hide based on menu state.
+
+          Entering: "transition ease-out duration-100"
+            From: "transform opacity-0 scale-95"
+            To: "transform opacity-100 scale-100"
+          Leaving: "transition ease-in duration-75"
+            From: "transform opacity-100 scale-100"
+            To: "transform opacity-0 scale-95"
+        -->
+        <div
+          x-show="dropdownOpen"
+          x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="transform opacity-0 scale-95"
+          x-transition:enter-end="transform opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-75"
+          x-transition:leave-start="transform opacity-100 scale-100"
+          x-transition:leave-end="transform opacity-0 scale-95"
+          class="origin-center absolute right-0 mt-2 w-96 rounded-md shadow-lg flex justify-center items-center bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+          <p class="text-gray-700 block px-4 py-2 text-sm"><span class="font-extrabold text-main text-base mr-2"><%= @nombre_reservations_attente  %></span> réservations en attentes de confirmations</p>
+        </div>
+      </div>
+    <% end %>
+    <%= button_to 'Se déconnecter', destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }, :class => "ml-3 text-sm border rounded bg-white px-3 py-2 hover:bg-main/50 hover:text-white" %>
   </div>
 
   <div class="mt-16">
@@ -33,7 +67,7 @@
 
 </div>
 
-<div class="mt-16">
+<div class="mt-16 min-h-screen">
   <div class="relative flex justify-center items-center flex-col">
     <div class="absolute w-11/12 h-2 bg-main z-[1] rounded"></div>
     <h2 class="text-5xl uppercase font-bold z-[99] bg-white px-10">Mes réservations</h2>

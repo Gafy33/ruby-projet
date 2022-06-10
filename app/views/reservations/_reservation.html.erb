@@ -1,4 +1,4 @@
-<div id="<%= dom_id reservation %>" class="relative flex flex-wrap my-3 mx-16 w-full h-40 border shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
+<div id="<%= dom_id reservation %>" class="relative flex flex-wrap my-3 mx-16 w-full h-40 border <% if reservation.statut == "en attente" %>border-orange-500 <% end %>shadow rounded-md px-3 py-4 hover:scale-102 ease-linear transition-all duration-150">
   <div class="absolute -right-8 -top-8 text-xl w-16 h-16  rounded-full bg-main text-white font-extrabold shadow flex items-center justify-center"><%= reservation.nombre_passage %></div>
   <div class="w-9/12 border-r-2 border-main flex items-center flew-row">
     <div class="w-9/12 flex flex-row justify-center">
