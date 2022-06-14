@@ -23,11 +23,20 @@ class ReservationsController < ApplicationController
 
   def create
 
-    @reservation = Reservation.new(:id_flight => params[:id], :id_user => current_user.id, :nombre_passage => params[:nombre_passage], :class_seat => params[:class_seat], :statut => "en attente")
+    @random = SecureRandom.alphanumeric(6)
+
+    if Reservation.select('identifiantbillet').where("identifiantbillet = :billet", {billet: @random}).exists?
+      @random = SecureRandom.alphanumeric(6)
+    end
+
+    @reservation = Reservation.new(:id_flight => params[:id], :id_user => current_user.id, :nombre_passage => params[:nombre_passage], :class_seat => params[:class_seat], :statut => "en attente", :identifiantbillet => @random)
+
+    @user = User.find(current_user.id)
+    ReservationMailer.with(user: @user, billet: @random).welcome_email.deliver_later
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to home_index_path, notice: "La réservation à bien été enregistrer" }
+        format.html { redirect_to home_index_path, notice: "Un email vous a été envoyé pour valider la réservation" }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,6 +68,29 @@ class ReservationsController < ApplicationController
       format.html { redirect_to compte_index_path, notice: "La réservation à été annulée" }
       format.json { head :no_content }
     end
+  end
+
+  def confirmation
+    @reservation = Reservation.where("identifiantbillet = :billet", {billet: params[:id_billet]}).take
+
+    if @reservation.id_user == current_user.id
+        @reservation.update(:statut => "Valide")
+
+        @statut_confirmation = true
+        respond_to do |format|
+          format.html { render 'reservations/confirmation', notice: "La réservation à bien été validée" }
+          format.json { render @statut_confirmation }
+        end
+    else
+        @statut_confirmation = false
+
+        respond_to do |format|
+          format.html { render 'reservations/confirmation' }
+          format.json { render @statut_confirmation }
+        end
+    end
+
+
   end
 
   private

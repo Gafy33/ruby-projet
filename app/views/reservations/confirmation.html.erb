@@ -1,0 +1,28 @@
+<div class="w-full h-screen overflow-hidden">
+  <!--<video class="w-full h-full absolute left-0 top-0 object-cover" src="video.mp4" autoplay muted loop type="mp4"></video>-->
+  <img class="w-full h-full absolute left-0 top-0 object-cover" src="https://images4.alphacoders.com/241/241776.jpg">
+
+  <%= image_tag("mask.jpg", class: "absolute w-full h-full left-0 top-0 z-1 mix-blend-screen") %>
+
+  <div class="absolute w-full h-full flex justify-center items-center">
+      <div class="bg-white w-[500px] pt-12 pb-6 px-10 flex justify-center items-center flex-col rounded-xl shadow-lg">
+        <% if @statut_confirmation %>
+          <div class="flex items-center justify-center text-center">
+            Votre réservation à bien été confirmé au sein de notre agence
+          </div>
+          <div class="mt-3 flex items-center justify-center text-center">
+            Vous avez jusqu'à 24h avant l'heure de départ pour annuler
+          </div>
+
+          <%= link_to 'Retour au site', "/", :class => "mt-4 text-sm border rounded bg-main px-3 py-2 hover:bg-main/50 text-white"%>
+        <% else %>
+            <div class="flex items-center justify-center text-center flex-col">
+              Cette réservation ne correspond pas à votre compte
+              <%= button_to 'Se déconnecter', destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }, :class => "mt-6 text-sm border rounded bg-main px-3 py-2 hover:bg-main/50 text-white" %>
+            </div>
+          <% end %>
+      </div>
+
+  </div>
+
+</div>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'compte/index'
   get 'home/index'
 
+  get 'reservations/confirmations/:id_billet', to: 'reservations#confirmation'
+
 
   root to: "home#index"
 end
